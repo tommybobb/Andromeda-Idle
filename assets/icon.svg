@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0" stop-color="#1b1020"/>
+      <stop offset="1" stop-color="#020408"/>
+    </radialGradient>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff3e0"/>
+      <stop offset=".35" stop-color="#ffb347"/>
+      <stop offset="1" stop-color="#ff7a00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g fill="none" stroke="#ff7a00" stroke-width="10" opacity=".9">
+    <ellipse cx="256" cy="256" rx="200" ry="70" transform="rotate(-28 256 256)"/>
+    <ellipse cx="256" cy="256" rx="140" ry="44" transform="rotate(-28 256 256)" opacity=".55"/>
+  </g>
+  <circle cx="256" cy="256" r="120" fill="url(#core)"/>
+  <circle cx="256" cy="256" r="26" fill="#fff6ec"/>
+  <g fill="#ff7a00">
+    <circle cx="96" cy="120" r="5"/><circle cx="420" cy="96" r="4"/><circle cx="440" cy="400" r="5"/><circle cx="90" cy="410" r="3"/>
+  </g>
+  <path d="M60 60h80M60 60v80M452 452h-80M452 452v-80" stroke="#ff7a00" stroke-width="12" fill="none"/>
+</svg>
