@@ -2,7 +2,7 @@
   "name": "andromeda-idle",
   "version": "1.0.0",
   "private": true,
-  "description": "A space-themed idle game inspired by Melvor Idle.",
+  "description": "A space-themed idle game.",
   "type": "module",
   "scripts": {
     "start": "npx http-server -c-1 -p 8080 .",
@@ -10,5 +10,5 @@
     "smoke": "node tests/smoke.mjs",
     "lint": "npx eslint js sw.js tests"
   },
-  "license": "MIT"
+  "license": "UNLICENSED"
 }

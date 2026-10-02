@@ -1,11 +1,11 @@
-// Companions are rare finds (Melvor's pets). Each skill has one; the chance
+// Companions are rare finds, like pets. Each skill has one; the chance
 // per action scales with the action's length and your skill level.
 
 export const COMPANIONS = [
   { id: 'grit', name: 'Grit', species: 'Rock Mite', skill: 'mining', mods: { 'double.mining': 3 }, color: '#ff9a3c', bonus: '+3% double ore chance', desc: 'A tiny silicon-based critter that hitched a ride on a chunk of ferrite. Purrs when you fire the laser.' },
   { id: 'puff', name: 'Puff', species: 'Gasbag Drifter', skill: 'gas', mods: { 'double.gas': 3 }, color: '#ffd36b', bonus: '+3% double gas chance', desc: 'A floating jellyfish-like creature that drifted into your scoop and decided to stay.' },
   { id: 'whiskers', name: 'Whiskers', species: "Ship's Cat", skill: 'salvaging', mods: { 'stealth.salvaging': 10 }, color: '#7bd88f', bonus: '+10 Finesse', desc: 'Found asleep in a derelict cargo bay. Has opinions about your piloting.' },
-  { id: 'nova', name: 'Nova', species: 'Star Fox', skill: 'exploration', mods: { discovery: 5 }, color: '#4ccbf2', bonus: '+5% discovery chance', desc: 'A shimmering creature of light that follows your ship from system to system.' },
+  { id: 'nova', name: 'Nova', species: 'Lumen Fox', skill: 'exploration', mods: { discovery: 5 }, color: '#4ccbf2', bonus: '+5% discovery chance', desc: 'A shimmering creature of light that follows your ship from system to system.' },
   { id: 'sprout', name: 'Sprout', species: 'Spore Sprite', skill: 'xenobiology', mods: { farmYield: 5 }, color: '#9dff9d', bonus: '+5% harvest yield', desc: 'A sentient puff of spores that sings to the crops. They seem to like it.' },
   { id: 'ember', name: 'Ember', species: 'Furnace Salamander', skill: 'refining', mods: { 'preserve.refining': 3 }, color: '#ff7a45', bonus: '+3% Refining preservation', desc: 'Lives in the smelter. Do not let it near the fuel tanks.' },
   { id: 'bolt', name: 'Bolt', species: 'Fab Drone', skill: 'fabrication', mods: { 'preserve.fabrication': 3 }, color: '#bfe8ff', bonus: '+3% Fabrication preservation', desc: 'A self-assembled drone made of leftover parts. Hums while it works.' },

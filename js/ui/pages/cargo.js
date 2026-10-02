@@ -1,4 +1,4 @@
-// Cargo hold (Melvor's bank).
+// Cargo hold.
 
 import { G } from '../../game/state.js';
 import { ITEMS, CATEGORIES } from '../../data/items.js';

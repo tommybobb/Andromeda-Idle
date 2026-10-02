@@ -34,10 +34,10 @@ export const INSIGNIA = [
 ];
 
 export const ACCENTS = [
-  { id: 'orange', name: 'Combat Orange', color: '#ff7a00' },
-  { id: 'blue', name: 'Federal Blue', color: '#3fa9ff' },
-  { id: 'gold', name: 'Imperial Gold', color: '#e6c35c' },
-  { id: 'green', name: 'Alliance Green', color: '#46d68a' },
+  { id: 'orange', name: 'Cockpit Orange', color: '#ff7a00' },
+  { id: 'blue', name: 'Cobalt Blue', color: '#3fa9ff' },
+  { id: 'gold', name: 'Solar Gold', color: '#e6c35c' },
+  { id: 'green', name: 'Nebula Green', color: '#46d68a' },
   { id: 'red', name: 'Pirate Red', color: '#ff4d4d' },
   { id: 'violet', name: 'Void Violet', color: '#b07bff' },
 ];

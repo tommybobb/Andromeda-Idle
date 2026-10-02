@@ -129,8 +129,8 @@ export function showIntro({ canCancel = false } = {}) {
       <div class="intro-logo"><h1>ANDROMEDA</h1><p>Idle</p></div>
       <div class="panel">
         <div class="ph">${icon('commander')} Commander registration</div>
-        <p class="small muted" style="margin-top:0">Mine, harvest, salvage, explore, trade and build your way from a battered Kestrel to the flagship that crosses the void to Andromeda. Your ship keeps working while you are away for up to 24 hours.</p>
-        <label class="field">Commander name<input class="input" id="cmdr-name" maxlength="20" placeholder="Jameson" autocomplete="off" value="${esc(intro._name || '')}"></label>
+        <p class="small muted" style="margin-top:0">Mine, harvest, salvage, explore, trade and build your way from a battered Sparrow to the flagship that crosses the void to Andromeda. Your ship keeps working while you are away for up to 24 hours.</p>
+        <label class="field">Commander name<input class="input" id="cmdr-name" maxlength="20" placeholder="Vega" autocomplete="off" value="${esc(intro._name || '')}"></label>
         <div class="field" style="margin-top:14px">Insignia</div>
         <div class="pick-grid" style="margin-top:6px">${INSIGNIA.map((i) => `<button class="pick ${i.id === ins ? 'on' : ''}" data-ins="${i.id}" title="${esc(i.name)}">${insignia(i.id, '')}</button>`).join('')}</div>
         <div class="field" style="margin-top:14px">HUD colour</div>
@@ -142,14 +142,14 @@ export function showIntro({ canCancel = false } = {}) {
           <button class="btn alt sm" id="import-intro">Import save</button>
         </div>
       </div>
-      <p class="tiny muted" style="text-align:center">A fan-made idle game inspired by Melvor Idle. Saves stay in this browser.</p>
+      <p class="tiny muted" style="text-align:center">A space idle game. Saves stay in this browser.</p>
     </div>`;
     const nameInput = intro.querySelector('#cmdr-name');
     nameInput.addEventListener('input', () => (intro._name = nameInput.value));
     intro.querySelectorAll('[data-ins]').forEach((b) => b.addEventListener('click', () => { ins = b.dataset.ins; render(); }));
     intro.querySelectorAll('[data-accent]').forEach((b) => b.addEventListener('click', () => { accent = b.dataset.accent; render(); }));
     intro.querySelector('#launch').addEventListener('click', async () => {
-      const name = (nameInput.value || '').trim().slice(0, 20) || 'Jameson';
+      const name = (nameInput.value || '').trim().slice(0, 20) || 'Vega';
       intro._name = '';
       const st = createProfile(name, ins, accent);
       await enterProfile(st);

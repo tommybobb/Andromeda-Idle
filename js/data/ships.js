@@ -5,7 +5,7 @@ export const FIXED_SLOTS = ['laser', 'harvester', 'salvage', 'scanner', 'fsd'];
 
 export const SHIPS = {
   kestrel: {
-    name: 'Kestrel Mk I', role: 'Starter Multirole', pilot: 1, price: 0, hull: 'light', color: '#ff7a00',
+    name: 'Sparrow Mk I', role: 'Starter Multirole', pilot: 1, price: 0, hull: 'light', color: '#ff7a00',
     tonnage: 8, cargoSlots: 0, slots: { cargo: 1, utility: 1 }, mods: {},
     desc: 'A dependable light ship handed to every new commander. Does a bit of everything, none of it brilliantly.',
   },

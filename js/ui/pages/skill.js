@@ -22,7 +22,7 @@ let researchTab = 'studies';
 let lastSig = '';
 
 const CATEGORIES = {
-  engineering: [['all', 'All'], ['laser', 'Lasers'], ['harvester', 'Harvesters'], ['salvage', 'Salvage'], ['scanner', 'Scanners'], ['fsd', 'FSD'], ['cargo', 'Cargo'], ['utility', 'Utility'], ['ships', 'Ships']],
+  engineering: [['all', 'All'], ['laser', 'Lasers'], ['harvester', 'Harvesters'], ['salvage', 'Salvage'], ['scanner', 'Scanners'], ['fsd', 'Jump Drives'], ['cargo', 'Cargo'], ['utility', 'Utility'], ['ships', 'Ships']],
   chemistry: [['all', 'All'], ['fuel', 'Fuel'], ['booster', 'Boosters'], ['supply', 'Supplies']],
 };
 

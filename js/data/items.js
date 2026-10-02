@@ -150,7 +150,7 @@ def('component', 'chip', [
   ['plasma_conduit', 'Plasma Conduit', 380, '#ff7ad9', 'Platinum-lined conduit for superheated plasma.', { shape: 'tube' }],
   ['superconductor', 'Superconductor Coil', 520, '#9fe7ff', 'Ammonia-chilled coil with zero electrical resistance.', { shape: 'coil' }],
   ['quantum_processor', 'Quantum Processor', 500, '#3d7dff', 'Benitoite-lattice qubit processor.'],
-  ['gravitic_stabiliser', 'Gravitic Stabiliser', 1100, '#7fa6d0', 'Dampens gravitational shear in frame shift drives.', { shape: 'core' }],
+  ['gravitic_stabiliser', 'Gravitic Stabiliser', 1100, '#7fa6d0', 'Dampens gravitational shear in jump drives.', { shape: 'core' }],
   ['exotic_matter_core', 'Exotic Matter Core', 3000, '#ec7bff', 'Contained exotic matter. The heart of an Andromeda-class drive.', { shape: 'core' }],
 ]);
 
@@ -220,7 +220,7 @@ export const SLOT_TYPES = {
   harvester: { name: 'Gas Harvester', short: 'Harvester' },
   salvage: { name: 'Salvage Limpets', short: 'Salvage' },
   scanner: { name: 'Survey Scanner', short: 'Scanner' },
-  fsd: { name: 'Frame Shift Drive', short: 'FSD' },
+  fsd: { name: 'Jump Drive', short: 'Jump' },
   cargo: { name: 'Cargo Rack', short: 'Cargo' },
   utility: { name: 'Utility', short: 'Utility' },
 };
@@ -259,7 +259,7 @@ const MODULE_LINES = [
     sig: [['optical_lens', 2], ['circuit_board', 3], ['sensor_array', 2], ['musgravite', 2], ['quantum_processor', 1]],
   },
   {
-    id: 'fsd', slot: 'fsd', name: 'Frame Shift Drive', color: '#c08bff', levels: [12, 32, 52, 72, 92],
+    id: 'fsd', slot: 'fsd', name: 'Jump Drive', color: '#c08bff', levels: [12, 32, 52, 72, 92],
     mods: (g) => ({ 'interval.trading': -(5 + 5 * g), 'interval.exploration': -(2 + 2 * g) }),
     sig: [['copper_wiring', 4], ['heat_sink', 2], ['power_coupling', 3], ['plasma_conduit', 2], ['exotic_matter', 4]],
   },

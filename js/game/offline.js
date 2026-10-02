@@ -1,5 +1,5 @@
 // Offline catch-up: replays elapsed time through the normal engine (capped at
-// 24 hours, like Melvor) and collects a summary for the "welcome back" report.
+// 24 hours) and collects a summary for the "welcome back" report.
 
 import { G, OFFLINE_CAP_MS } from './state.js';
 import { SKILL_ORDER } from '../data/skills.js';

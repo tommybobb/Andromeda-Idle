@@ -1,4 +1,4 @@
-// The action loop. One action can be active at a time (as in Melvor); farming
+// The action loop. One action can be active at a time; farming
 // runs alongside on real timestamps. advance(ms) is deterministic in time, so
 // the same code powers live play and offline catch-up.
 
@@ -82,7 +82,7 @@ export function finesse(act) {
   return skillLevel('salvaging') + actMod('salvaging', act, 'stealth');
 }
 
-// Melvor thieving style: (100 + stealth) / (100 + perception)
+// Success roll: (100 + stealth) / (100 + perception)
 export function salvageChance(act) {
   return clamp(((100 + finesse(act)) / (100 + act.perception)) * 100, 0, 100);
 }
