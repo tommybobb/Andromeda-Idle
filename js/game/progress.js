@@ -1,4 +1,4 @@
-// Skill XP, mastery XP and the mastery pool, following Melvor Idle's formulas.
+// Skill XP, mastery XP and the mastery pool.
 
 import { G } from './state.js';
 import { SKILLS, SKILL_ORDER, PILOT_XP_SHARE } from '../data/skills.js';
@@ -46,7 +46,7 @@ export function addXP(skillId, base) {
   return amount;
 }
 
-// Melvor mastery formula:
+// Mastery formula:
 //   ((unlocked actions * total current mastery / total max mastery)
 //     + (action mastery level * total actions / 10)) * action seconds * 0.5
 export function masteryGain(skillId, actionId, intervalMs) {
@@ -81,7 +81,7 @@ export function addPoolXP(skillId, amount) {
   s.pool = Math.min(poolCap(skillId), s.pool + amount);
 }
 
-// Spend pool XP to raise an action's mastery by `levels` (1:1 XP cost, like Melvor).
+// Spend pool XP to raise an action's mastery by `levels` (1:1 XP cost).
 export function masteryCost(skillId, actionId, levels) {
   const cur = masteryLevel(skillId, actionId);
   const target = Math.min(MAX_MASTERY, cur + levels);

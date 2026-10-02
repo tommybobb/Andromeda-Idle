@@ -1,6 +1,6 @@
 # Andromeda Idle
 
-A space idle game in the style of Melvor Idle, with a cockpit HUD inspired by classic space sims. Mine asteroids, skim gas giants, pick through derelicts, chart the galaxy, grow alien crops, build ship modules and work your way from a battered Kestrel to the flagship that crosses the void to Andromeda.
+A space idle game with a cockpit HUD. Mine asteroids, skim gas giants, pick through derelicts, chart the galaxy, grow alien crops, build ship modules and work your way from a battered Sparrow to the flagship that crosses the void to Andromeda.
 
 Everything is non-combat. Your ship keeps working for up to 24 hours while you are away, and it plays on phones and desktops alike (it can be installed as an app from the browser menu).
 
@@ -31,26 +31,26 @@ Any static web server works. Opening `index.html` straight from disk will not, b
 | | Xenobiology | Hydroponics bays that grow in real time, even offline. Nutrient Gel improves survival. |
 | Production | Refining | Ore into ingots and alloys. |
 | | Fabrication | Ingots into components: plating, wiring, circuits, coils, processors. |
-| | Chemistry | Jump fuel, Nutrient Gel and Boosters (Melvor's potions). |
+| | Chemistry | Jump fuel, Nutrient Gel and Boosters. |
 | | Engineering | Ship modules, grades E to A, and two ships that can only be built. |
 | Operations | Trading | Sell a full hold of goods on a trade route for a premium. Ship tonnage sets how much each run carries. |
 | | Research | Turn data and artefacts into Research Points for the Tech Lab. |
 | | Piloting | Levels passively from every ship operation. Unlocks ships and speeds up ship work. |
 
-**Ships and cargo.** Twelve ships, each with built-in bonuses, trade tonnage and module slots (laser, harvester, salvage, scanner, frame shift drive, cargo racks and utility slots). The cargo hold works like Melvor's bank: one slot per item type, unlimited stacks, expandable.
+**Ships and cargo.** Twelve ships, each with built-in bonuses, trade tonnage and module slots (laser, harvester, salvage, scanner, jump drive, cargo racks and utility slots). The cargo hold has one slot per item type, unlimited stacks, expandable.
 
 **Commander profiles.** Multiple save slots in one browser, a rank ladder based on total level, insignia, six HUD colours, and save export and import for moving between devices.
 
-**Also:** mastery levels for every action, mastery pools with checkpoints, 12 companions (Melvor's pets), 65 achievements, a Tech Lab with 15 upgrade lines, a market, statistics and a full offline catch-up report.
+**Also:** mastery levels for every action, mastery pools with checkpoints, 12 companions, 65 achievements, a Tech Lab with 15 upgrade lines, a market, statistics and a full offline catch-up report.
 
 ## Formulas
 
-The progression maths follows Melvor Idle's wiki.
+The progression maths:
 
 - **Skill and mastery XP curve.** `XP(L) = floor( sum_{l=1}^{L-1} floor(l + 300 * 2^(l/7)) / 4 )`. Level 2 is 83 XP and level 99 is 13,034,431 XP.
 - **Mastery XP per action.** `((unlocked actions * total current mastery / (actions * 99)) + (mastery level * actions / 10)) * action seconds * 0.5`, multiplied by any Mastery XP bonuses.
 - **Mastery pool.** 25% of mastery XP (50% once the skill is 99) flows into a pool capped at 500,000 XP per action. Checkpoints at 10%, 25%, 50% and 95% give bonuses while the pool stays above them. Pool XP can be spent one-for-one on mastery levels.
-- **Salvage success** (Melvor thieving). `(100 + Finesse) / (100 + Hazard)`, where Finesse is skill level plus mastery level plus bonuses.
+- **Salvage success.** `(100 + Finesse) / (100 + Hazard)`, where Finesse is skill level plus mastery level plus bonuses.
 - **Offline progress.** Elapsed time is replayed through the same engine as live play, capped at 24 hours.
 
 ## Development
@@ -78,4 +78,8 @@ Content lives in `js/data`. Adding an ore, recipe or trade route is a single lin
 
 ## Credits
 
-A fan-made project. It borrows the progression formulas of Melvor Idle and the feel of space sims, and is not affiliated with Games by Malcs, Frontier Developments, Hello Games or CCP Games. Fonts are Orbitron and Rajdhani from Google Fonts.
+Fonts are Orbitron and Rajdhani from Google Fonts, used under the SIL Open Font Licence.
+
+## Licence
+
+Copyright (c) 2026 Tom Clarke. All rights reserved.

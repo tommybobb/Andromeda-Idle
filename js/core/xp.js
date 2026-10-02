@@ -1,4 +1,4 @@
-// Experience curve. Uses the same table as Melvor Idle (inherited from RuneScape):
+// Experience curve. The classic idle-game curve:
 //   XP(L) = floor( 1/4 * sum_{l=1}^{L-1} floor( l + 300 * 2^(l/7) ) )
 // Level 2 = 83 XP, level 99 = 13,034,431 XP.
 

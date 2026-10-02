@@ -25,7 +25,7 @@ function fresh() {
   return s;
 }
 
-test('XP table matches Melvor Idle', () => {
+test('XP table matches the expected curve', () => {
   assert.equal(XP_TABLE[2], 83);
   assert.equal(XP_TABLE[10], 1154);
   assert.equal(XP_TABLE[50], 101333);
@@ -79,7 +79,7 @@ test('mining produces ore, XP, mastery and depletes the asteroid', () => {
   assert.ok(S.stats.rocksDepleted >= 1, 'asteroid depleted at least once');
 });
 
-test('mastery gain uses the Melvor formula', () => {
+test('mastery gain uses the mastery formula', () => {
   fresh();
   // 12 actions, 2 unlocked at level 1, all mastery level 1, 3s action, 0.5 factor
   const expected = ((2 * 12) / (12 * 99) + (1 * 12) / 10) * 3 * 0.5;

@@ -25,10 +25,10 @@ export default {
           ${TOGGLES.map(([key, label, hint]) => `<label class="toggle"><span><b>${label}</b><br><span class="small muted">${hint}</span></span><input type="checkbox" data-act="toggle" data-key="${key}" ${s[key] ? 'checked' : ''}><span class="sw"></span></label>`).join('')}
         </div>
         <div class="panel"><div class="ph">About</div>
-          <p style="margin-top:0">Andromeda Idle is a fan-made space idle game inspired by Melvor Idle, with a cockpit HUD in the spirit of classic space sims.</p>
+          <p style="margin-top:0">Andromeda Idle is a space idle game with a cockpit HUD. Your ship keeps working while you are away.</p>
           <ul class="small muted" style="padding-left:18px">
-            <li>Skill XP uses Melvor's curve: level 99 needs 13,034,431 XP.</li>
-            <li>Mastery XP and the mastery pool follow Melvor's formulas, with checkpoints at 10%, 25%, 50% and 95%.</li>
+            <li>Skills level from 1 to 99. Level 99 needs 13,034,431 XP.</li>
+            <li>Every action has its own mastery level, and each skill has a mastery pool with checkpoints at 10%, 25%, 50% and 95%.</li>
             <li>Offline progress is simulated for up to ${fmtTime(OFFLINE_CAP_MS)}.</li>
             <li>Saves are stored in this browser${storageAvailable() ? '' : ' <b class="bad">(storage is blocked, progress will not persist)</b>'}. Export backups from the Commander page.</li>
           </ul>

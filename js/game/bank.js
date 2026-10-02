@@ -1,4 +1,4 @@
-// Cargo hold (Melvor's bank). Each distinct item takes one slot; stacks are unlimited.
+// Cargo hold. Each distinct item takes one slot; stacks are unlimited.
 
 import { G } from './state.js';
 import { ITEMS } from '../data/items.js';
