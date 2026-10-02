@@ -119,8 +119,7 @@ input, select { font: inherit; }
   grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
   grid-template-rows: var(--top-h) auto minmax(0, 1fr);
   grid-template-areas: 'top top' 'side strip' 'side main';
-  height: 100vh;
-  height: 100dvh;
+  height: 100%;
 }
 
 #topbar {

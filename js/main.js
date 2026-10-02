@@ -59,8 +59,12 @@ function frame(t) {
 }
 
 function registerServiceWorker() {
-  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-    navigator.serviceWorker.register('sw.js').catch((err) => console.warn('Service worker not registered', err));
+  try {
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+      navigator.serviceWorker.register('sw.js').catch((err) => console.warn('Service worker not registered', err));
+    }
+  } catch {
+    // Sandboxed frames can refuse service workers outright; the game works without one.
   }
 }
 
