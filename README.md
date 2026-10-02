@@ -59,7 +59,10 @@ The progression maths:
 npm test           # engine tests (Node 20+)
 npm run smoke      # browser smoke test across every page; needs playwright and a running server
 npm run lint       # eslint
+npm run economy    # balance report: XP, credits and item costs for every action
 ```
+
+The economy model drives the real engine with fixed setups and prints a Markdown report. It is seeded, so after a data change you can diff its output against `docs/economy-baseline.md` to see exactly what moved. `docs/expansion-plan.md` covers what to build next and how to track it.
 
 ```
 index.html            app shell
@@ -72,6 +75,8 @@ js/ui/                router and shell, live bindings, SVG icons and scenes, mod
 js/ui/pages/          one module per screen
 sw.js                 offline cache (network first)
 tests/                engine tests and the browser smoke test
+tools/                economy model for balancing
+docs/                 economy baseline report and the expansion plan
 ```
 
 Content lives in `js/data`. Adding an ore, recipe or trade route is a single line in `js/data/skills.js` plus an item in `js/data/items.js`.

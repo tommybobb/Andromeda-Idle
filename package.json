@@ -8,7 +8,8 @@
     "start": "npx http-server -c-1 -p 8080 .",
     "test": "node --test tests/*.test.mjs",
     "smoke": "node tests/smoke.mjs",
-    "lint": "npx eslint js sw.js tests"
+    "lint": "npx eslint js sw.js tests tools",
+    "economy": "node tools/economy.mjs"
   },
   "license": "UNLICENSED"
 }
