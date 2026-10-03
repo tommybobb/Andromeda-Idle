@@ -62,7 +62,7 @@ npm run lint       # eslint
 npm run economy    # balance report: XP, credits and item costs for every action
 ```
 
-The economy model drives the real engine with fixed setups and prints a Markdown report. It is seeded, so after a data change you can diff its output against `docs/economy-baseline.md` to see exactly what moved. `docs/expansion-plan.md` covers what to build next and how to track it.
+The economy model drives the real engine with fixed setups and prints a Markdown report. It is seeded, so after a data change you can diff its output against `docs/economy-baseline.md` to see exactly what moved. `docs/expansion-plan.md` is the research write-up: balance findings, what to build next and why, and how to track the game.
 
 ```
 index.html            app shell

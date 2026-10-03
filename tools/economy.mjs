@@ -34,6 +34,7 @@ import { XP_TABLE, levelFromXP } from '../js/core/xp.js';
 import { on } from '../js/core/events.js';
 import * as engine from '../js/game/engine.js';
 import { invalidateMods, poolCap } from '../js/game/modifiers.js';
+import { masteryLevel } from '../js/game/progress.js';
 
 const HOUR = 3600000;
 const argv = process.argv.slice(2);
@@ -58,6 +59,7 @@ const sell = (id) => ITEMS[id]?.sell || 0;
 const name = (id) => ITEMS[id]?.name || id;
 const n0 = (n) => Math.round(n).toLocaleString('en-GB');
 const n1 = (n) => (Math.abs(n) >= 100 ? n0(n) : (Math.round(n * 10) / 10).toLocaleString('en-GB'));
+const pct = (n) => `${Math.round(n)}%`;
 const hrs = (h) => (h >= 48 ? `${n0(h)}h (${n1(h / 24)}d)` : `${n1(h)}h`);
 const maxBy = (list, f) => list.reduce((best, x) => (best === null || f(x) > f(best) ? x : best), null);
 
@@ -446,6 +448,21 @@ p();
     if (bays) rows.push([`${r.name} (${skillName(r)})`, r.level, used.join(', '), n1(bays), baysAt(r.level)]);
   }
   table(['Action', 'Lvl', 'Crops used', 'Bays needed', 'Bays you can own at that level'], rows);
+
+  // Using a booster is a different load from training Chemistry on it.
+  const ACTIONS_PER_HOUR = 1200;
+  p(`Bays it takes to keep one booster running full-time, at ${n0(ACTIONS_PER_HOUR)} actions an hour (a 3 second action), typical setup.`);
+  p();
+  const boosterRows = [];
+  for (const recipe of SKILLS.chemistry.actions) {
+    const item = ITEMS[recipe.outputs[0].id];
+    if (!item.booster) continue;
+    const doses = ACTIONS_PER_HOUR / item.booster.charges;
+    let bays = 0;
+    for (const { id, qty } of recipe.inputs) if (CROP_OF[id]) bays += (qty * doses) / cropsPerBayHour(CROP_OF[id], TYPICAL_MASTERY);
+    if (bays) boosterRows.push([item.name, recipe.level, n1(doses), n1(bays), baysAt(recipe.level)]);
+  }
+  table(['Booster', 'Lvl', 'Doses per hour', 'Bays needed', 'Bays you can own at that level'], boosterRows);
 }
 
 // --- Exploration: what a scan is worth by region -------------------------------------------
@@ -499,6 +516,33 @@ table(['Route', 'Lvl', 'XP per run', 'Units per run', 'XP per unit', 'Effort sec
   const xpRun = r.xp / r.actions;
   const secsPerRun = (realHours(r, typicalCosts.cost) * 3600) / r.actions;
   return [r.name, r.level, n1(xpRun), n0(units), n1(xpRun / units), c !== undefined ? n1(secsPerRun / xpRun) : 'n/a'];
+}));
+
+p('The same route on different ships: Metals Contract, no cargo racks fitted.');
+p();
+{
+  const act = SKILLS.trading.actionMap.metals;
+  table(['Ship', 'Hold', 'XP per run', 'XP per ingot'], ['wayfarer', 'kestrel', 'mule', 'atlas', 'andromeda'].map((id) => {
+    const S = buildState('trading', act.id, { ...setupFor('trading', act.level, false), pilot: 99, ship: id });
+    S.ships.loadouts[id] = {};
+    invalidateMods();
+    const hold = engine.tonnage(act);
+    return [SHIPS[id].name, `${hold}t`, act.xp, (act.xp / hold).toFixed(2)];
+  }));
+}
+
+// --- Salvage success ------------------------------------------------------------------------
+p('## Salvage success');
+p();
+p('Chance an attempt succeeds. A failure costs a 3 second reboot. Typical setup at mastery 1 and 40, and endgame.');
+p();
+table(['Wreck', 'Lvl', 'Hazard', 'Mastery 1', 'Mastery 40', 'Endgame'], SKILLS.salvaging.actions.map((act) => {
+  const chanceWith = (setup) => {
+    buildState('salvaging', act.id, setup);
+    return engine.salvageChance(act);
+  };
+  const typ = setupFor('salvaging', act.level, false);
+  return [act.name, act.level, act.perception, pct(chanceWith({ ...typ, mastery: 1 })), pct(chanceWith(typ)), pct(chanceWith(setupFor('salvaging', 99, true)))];
 }));
 
 // --- Credit sinks ---------------------------------------------------------------------
@@ -605,6 +649,22 @@ p();
 table(['Skill', 'Actions in skill', 'Mastery XP/h'], SKILL_ORDER.filter((id) => SKILLS[id].kind === 'action').map((id) => {
   const r = typical.find((x) => x.skill === id);
   return [SKILLS[id].name, SKILLS[id].actions.length, n0(r.mxp)];
+}));
+
+p('Mastery level reached on that action from a standing start, with skill XP and mastery rising as they would in play. A full offline session is 24 hours.');
+p();
+table(['Skill', 'Action', 'After 1 hour', 'After 24 hours'], SKILL_ORDER.filter((id) => SKILLS[id].kind === 'action').map((id) => {
+  const act = SKILLS[id].actions[0];
+  const S = buildState(id, act.id, { ...setupFor(id, act.level, false), mastery: 1 });
+  for (const i of act.inputs || []) S.bank[i.id] = 1e12;
+  if (act.commodity) S.bank[act.commodity] = 1e12;
+  G.silent = true;
+  engine.startAction(id, act.id);
+  engine.advance(HOUR);
+  const hour = masteryLevel(id, act.id);
+  engine.advance(23 * HOUR);
+  G.silent = false;
+  return [SKILLS[id].name, act.name, hour, masteryLevel(id, act.id)];
 }));
 
 console.log(out.join('\n'));

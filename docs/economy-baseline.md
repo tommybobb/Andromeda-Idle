@@ -367,6 +367,24 @@ Bays it takes to keep one hour of the action fed, typical setup, crops replanted
 | Medical Supplies (Trading) | 58 | Starbloom | 10,639 | 8 |
 | Xenobotany (Research) | 30 | Starbloom | 310 | 6 |
 
+Bays it takes to keep one booster running full-time, at 1,200 actions an hour (a 3 second action), typical setup.
+
+| Booster | Lvl | Doses per hour | Bays needed | Bays you can own at that level |
+| --- | ---: | ---: | ---: | ---: |
+| Laser Coolant | 6 | 48 | 1.2 | 3 |
+| Scoop Catalyst | 10 | 48 | 2.4 | 4 |
+| Salvage Analyser | 15 | 48 | 2.4 | 4 |
+| Thermal Flux | 20 | 48 | 3.6 | 5 |
+| Precision Nanites | 28 | 48 | 3.6 | 5 |
+| Cartographer's Stim | 35 | 48 | 7.2 | 6 |
+| Growth Hormone | 40 | 48 | 7.2 | 7 |
+| Reagent Stabiliser | 45 | 48 | 10.8 | 7 |
+| Engineer's Focus | 50 | 48 | 10.8 | 8 |
+| Broker's Brew | 55 | 48 | 14.4 | 8 |
+| Neural Accelerant | 66 | 48 | 21.7 | 9 |
+| Overclock Serum | 75 | 48 | 28.9 | 10 |
+| Mastery Tonic | 90 | 48 | 72.2 | 12 |
+
 ## Exploration finds by region
 
 Credit value of survey finds per scan, against the survey data itself and the fuel burned (fuel at market sale value), typical setup.
@@ -420,6 +438,32 @@ A run pays the same XP however much it sells, so a bigger hold burns more goods 
 | Precious Metals | 74 | 79.8 | 256 | 0.3 | 18.4 |
 | Cartographic Data Sale | 82 | 94.5 | 384 | 0.2 | 118 |
 | Exotic Tech Run | 90 | 116 | 384 | 0.3 | 460 |
+
+The same route on different ships: Metals Contract, no cargo racks fitted.
+
+| Ship | Hold | XP per run | XP per ingot |
+| --- | ---: | ---: | ---: |
+| Wayfarer | 6t | 15 | 2.50 |
+| Sparrow Mk I | 8t | 15 | 1.88 |
+| Mule | 32t | 15 | 0.47 |
+| Atlas Heavy Hauler | 128t | 15 | 0.12 |
+| Andromeda | 256t | 15 | 0.06 |
+
+## Salvage success
+
+Chance an attempt succeeds. A failure costs a 3 second reboot. Typical setup at mastery 1 and 40, and endgame.
+
+| Wreck | Lvl | Hazard | Mastery 1 | Mastery 40 | Endgame |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Drifting Escape Pod | 1 | 10 | 100% | 100% | 100% |
+| Jettisoned Cargo | 8 | 30 | 92% | 100% | 100% |
+| Scout Hull Wreck | 18 | 60 | 81% | 100% | 100% |
+| Abandoned Mining Barge | 28 | 90 | 89% | 100% | 100% |
+| Freighter Hulk | 40 | 140 | 80% | 96% | 100% |
+| Abandoned Outpost | 52 | 190 | 70% | 83% | 100% |
+| Generation Ship Remains | 64 | 240 | 66% | 78% | 100% |
+| Alien Debris Field | 76 | 300 | 59% | 69% | 98% |
+| Precursor Ruins | 88 | 380 | 54% | 62% | 82% |
 
 ## Where credits go
 
@@ -487,4 +531,19 @@ Mastery XP per hour at typical setup, first action in each skill. The formula sc
 | Engineering | 56 | 403,231 |
 | Trading | 15 | 108,024 |
 | Research | 10 | 72,089 |
+
+Mastery level reached on that action from a standing start, with skill XP and mastery rising as they would in play. A full offline session is 24 hours.
+
+| Skill | Action | After 1 hour | After 24 hours |
+| --- | ---: | ---: | ---: |
+| Mining | Ferrite Asteroid | 44 | 86 |
+| Gas Harvesting | Hydrogen Cloud | 42 | 84 |
+| Salvaging | Drifting Escape Pod | 40 | 83 |
+| Exploration | Local Cluster | 38 | 82 |
+| Refining | Iron Ingot | 45 | 86 |
+| Fabrication | Hull Plate | 51 | 91 |
+| Chemistry | Hydrogen Fuel Cell | 51 | 91 |
+| Engineering | Mining Laser E | 66 | 99 |
+| Trading | Ore Shuttle | 48 | 89 |
+| Research | Stellar Spectra | 42 | 84 |
 
